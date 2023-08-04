@@ -6,10 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTRARSE</title>
    
-</head>
-<body>
-  
+<style>
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
 
-</form>
-</body>
+        <form id="registroForm">
+            <h2>Formulario de Registro</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required><br>
+            
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" required><br>
+        
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" required><br>
+        
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" required>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option><br>
+            </select>
+        <br>
+            <label for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input type="date" id="fechaNacimiento" required><br>
+        
+            <button type="submit">Enviar</button><br>
+          </form>
+        
+          <script>
+            const formulario = document.getElementById('registroForm');
+        
+            formulario.addEventListener('submit', function(event) {
+              event.preventDefault();
+        
+              const sexoSeleccionado = document.getElementById('sexo').value;
+              const telefono = document.getElementById('telefono').value;
+              const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+        
+              if (sexoSeleccionado === '') {
+                alert('Por favor, selecciona tu sexo.');
+                return;
+              }
+        
+              if (telefono === '') {
+                alert('Por favor, ingresa tu número de teléfono.');
+                return;
+              }
+        
+              const hoy = new Date();
+              const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+              const mesActual = hoy.getMonth();
+              const mesNacimiento = fechaNacimiento.getMonth();
+        
+              if (mesNacimiento > mesActual || (mesNacimiento === mesActual && fechaNacimiento.getDate() > hoy.getDate())) {
+                edad--;
+              }
+        
+              if (edad < 18) {
+                alert('Debes ser mayor de 18 años para registrarte.');
+                return;
+              }
+            });
+        </script>
 </html>
