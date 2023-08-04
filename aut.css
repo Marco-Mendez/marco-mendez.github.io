@@ -102,3 +102,56 @@ body {
 .center {
   text-align: center;
 }
+
+
+table {
+  max-width: 400px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 2px dotted rgb(3, 0, 172);
+}
+
+th {
+  font-weight: bold;
+  border: 1px solid rgb(147, 131, 37); 
+}
+
+tr:nth-child(even) {
+  background: linear-gradient(to right, #bf4949, #554a08);
+}
+
+tr:nth-child(odd) {
+  background: linear-gradient(to right, #55b9b1, #090a61);
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #002afd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #054b08;
+}
+
+h2 {
+  font-weight: bold;
+  border: 1px solid rgb(95, 83, 17); 
+  padding: 10px;
+  text-align: center;
+}
