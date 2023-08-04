@@ -155,3 +155,13 @@ h2 {
   padding: 10px;
   text-align: center;
 }
+mi-div {
+  text-align: justify;
+  padding: 10px;
+  background: linear-gradient(to right, #705bcc, #79055c);
+ 
+  margin-top: 10px;
+  margin-right: 200px;
+  margin-bottom: 300px;
+  margin-left: 400px;
+}
