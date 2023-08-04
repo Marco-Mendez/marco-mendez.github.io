@@ -5,41 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTRARSE</title>
-   
-<style>
-      form {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-    </style>
   </head>
   <body>
-
-        <form id="registroForm">
-            <h2>Formulario de Registro</h2>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" required><br>
-            
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" required><br>
-        
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" required><br>
-        
-            <label for="sexo">Sexo:</label>
+    <table>
+      <form id="registroForm">
+        <h2>Formulario de Registro</h2>
+        <tr>
+          <th><label for="nombre">Nombre:</label></th>
+          <td><input type="text" id="nombre" required></td>
+        </tr>
+  
+        <tr>
+          <th><label for="email">Correo electrónico:</label></th>
+          <td><input type="email" id="email" required></td>
+        </tr>
+  
+        <tr>
+          <th><label for="telefono">Teléfono:</label></th>
+          <td><input type="tel" id="telefono" required></td>
+        </tr>
+  
+        <tr>
+          <th><label for="sexo">Sexo:</label></th>
+          <td>
             <select id="sexo" required>
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
-              <option value="otro">Otro</option><br>
+              <option value="otro">Otro</option>
             </select>
-        <br>
-            <label for="fechaNacimiento">Fecha de nacimiento:</label>
-            <input type="date" id="fechaNacimiento" required><br>
-        
-            <button type="submit">Enviar</button><br>
-          </form>
-        
+          </td>
+        </tr>
+  
+        <tr>
+          <th><label for="fechaNacimiento">Fecha de nacimiento:</label></th>
+          <td><input type="date" id="fechaNacimiento" required></td>
+        </tr>
+  
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <button type="submit">Enviar</button>
+          </td>
+        </tr>
+      </form>
+    </table>
+
+            
           <script>
             const formulario = document.getElementById('registroForm');
         
@@ -75,4 +85,7 @@
               }
             });
         </script>
+
+
+  </body>
 </html>
