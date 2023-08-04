@@ -10,7 +10,7 @@
     <table>
       <form id="registroForm">
         <h2>Formulario de Registro</h2>
-        <tr>
+        <tr> <hr>
           <th><label for="nombre">Nombre:</label></th>
           <td><input type="text" id="nombre" required></td>
         </tr>
@@ -20,9 +20,17 @@
           <td><input type="email" id="email" required></td>
         </tr>
   
+
+        <tr>
+          <th><label for="contrasena">Contraseña:</label></th>
+          <td><input type="password" id="contrasena" required></td>
+        </tr>
+
+
+
         <tr>
           <th><label for="telefono">Teléfono:</label></th>
-          <td><input type="tel" id="telefono" required></td>
+          <td><input type="tel" id="telefono" required pattern="[0-9]+" placeholder="0-9"></td>
         </tr>
   
         <tr>
@@ -41,17 +49,36 @@
           <td><input type="date" id="fechaNacimiento" required></td>
         </tr>
   
+
+
+
+
         <tr>
           <td colspan="2" style="text-align: center;">
-            <button type="submit">Enviar</button>
+            <button type="submit">Enviar</button> <hr>
           </td>
         </tr>
       </form>
     </table>
 
+
+
+    <div id="mensajeGracias" style="display: none; text-align: center; margin-top: 20px; font-weight: bold; font-size: 18px;">
+      GRACIAS POR SU PREFERENCIA
+    </div>
+  
+
             
           <script>
             const formulario = document.getElementById('registroForm');
+
+            const contrasenaInput = document.getElementById('contrasena');
+            const telefonoInput = document.getElementById('telefono');
+    const mensajeGracias = document.getElementById('mensajeGracias');
+
+
+
+
         
             formulario.addEventListener('submit', function(event) {
               event.preventDefault();
@@ -75,6 +102,8 @@
               const mesActual = hoy.getMonth();
               const mesNacimiento = fechaNacimiento.getMonth();
         
+              const contrasena = contrasenaInput.value;
+
               if (mesNacimiento > mesActual || (mesNacimiento === mesActual && fechaNacimiento.getDate() > hoy.getDate())) {
                 edad--;
               }
@@ -83,6 +112,22 @@
                 alert('Debes ser mayor de 18 años para registrarte.');
                 return;
               }
+
+
+
+
+
+              if (contrasena.length < 8) {
+                alert('La contraseña debe tener al menos 8 caracteres.');
+                return;
+              }
+ if (!/^\d+$/.test(telefono)) {
+        alert('El teléfono solo debe contener números.');
+        return;
+      }
+      formulario.style.display = 'none';
+      mensajeGracias.style.display = 'block';
+
             });
         </script>
 
